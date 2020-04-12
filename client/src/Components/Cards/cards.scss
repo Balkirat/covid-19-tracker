@@ -1,0 +1,30 @@
+@import "../../styles/partials/resets";
+@import "../../styles/partials/variables";
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/fonts";
+
+.card--container{
+    margin-top: 50px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cards{
+    width: 30%;
+    &__heading{
+        text-align: center;
+        border: 2px solid ;
+        &--yellow{
+            background-color: yellow;
+        }
+        &--green{
+            background-color: green;
+        }
+        &--red{
+            background-color: red;
+        }
+    }
+
+}
