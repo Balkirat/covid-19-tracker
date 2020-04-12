@@ -13,17 +13,19 @@
 
 .cards{
     width: 30%;
+    border: 2px solid black;
+    background-color: rgba(226, 219, 219, 0.5);
+    text-align: center;
     &__heading{
         text-align: center;
-        border: 2px solid ;
         &--yellow{
-            background-color: yellow;
+            background-color: rgba(0, 0, 255, .5);
         }
         &--green{
-            background-color: green;
+            background-color: rgb(137, 247, 137);
         }
         &--red{
-            background-color: red;
+            background-color: rgb(221, 68, 68);
         }
     }
 

@@ -26,7 +26,7 @@ function cards(props) {
             />
           </p>
           <p>{new Date(props.data.lastUpdate).toDateString()}</p>
-          <p>Total No. Infected People</p>
+          <p>Total No. Infected People from Covid-19</p>
         </div>
         <div className="cards">
           <h3 className="cards__heading cards__heading--green">RECOVERED</h3>
@@ -56,7 +56,7 @@ function cards(props) {
             />
           </p>
           <p>{new Date(props.data.lastUpdate).toDateString()}</p>
-          <p>Total No. Deaths from Covid-19</p>
+          <p>Total No. of Deaths from Covid-19</p>
         </div>
       </div>
     </>
