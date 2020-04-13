@@ -3,11 +3,8 @@ import "./cards.scss";
 import CountUp from "react-countup";
 
 function cards(props) {
-  console.log("in cards ", props.data.confirmed);
-  if (!props.data.confirmed) {
+  if (!props.data.cases) {
     return "Loading.....";
-  } else {
-    console.log("in cards ", props.data.confirmed.value);
   }
   return (
     <>
@@ -20,27 +17,27 @@ function cards(props) {
           <p>
             <CountUp
               start={0}
-              end={props.data.confirmed.value}
+              end={props.data.cases}
               duration={5}
               separator=","
             />
           </p>
-          <p>{new Date(props.data.lastUpdate).toDateString()}</p>
+          <p>{new Date(props.data.updated).toDateString()}</p>
           <p>Total No. Infected People from Covid-19</p>
         </div>
         <div className="cards">
-          <h3 className="cards__heading cards__heading--green">RECOVERED</h3>
+          <h3 className="cards__heading cards__heading--green">RECOVERED CASES</h3>
           <h5>Recovered</h5>
           <p>
             {" "}
             <CountUp
               start={0}
-              end={props.data.recovered.value}
+              end={props.data.recovered}
               duration={3}
               separator=","
             />
           </p>
-          <p>{new Date(props.data.lastUpdate).toDateString()}</p>
+          <p>{new Date(props.data.updated).toDateString()}</p>
           <p>Total No. Recovered People from Covid-19</p>
         </div>
         <div className="cards">
@@ -50,13 +47,37 @@ function cards(props) {
             {" "}
             <CountUp
               start={0}
-              end={props.data.deaths.value}
+              end={props.data.deaths}
               duration={3}
               separator=","
             />
           </p>
-          <p>{new Date(props.data.lastUpdate).toDateString()}</p>
+          <p>{new Date(props.data.updated).toDateString()}</p>
           <p>Total No. of Deaths from Covid-19</p>
+        </div>
+        <div className="cards">
+          <h3 className="cards__heading cards__heading--lightgray">TODAY'S DATA</h3>
+          <h5>New Cases</h5>
+          <p>
+            {" "}
+            <CountUp
+              start={0}
+              end={props.data.todayCases}
+              duration={2}
+              separator=","
+            />
+          </p>
+          <h5>New Deaths</h5>
+          <p>
+            {" "}
+            <CountUp
+              start={0}
+              end={props.data.todayDeaths}
+              duration={2}
+              separator=","
+            />
+          </p>
+          <p>{new Date(props.data.updated).toDateString()}</p>
         </div>
       </div>
     </>

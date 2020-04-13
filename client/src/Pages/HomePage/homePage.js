@@ -7,17 +7,19 @@ import CountrySelector from "../../Components/CountrySelector";
 import Header from "../../Components/Header";
 import Hero from "../../Components/Hero";
 
-const API_URL = "https://covid19.mathdro.id/api";
+const API_URL = "https://corona.lmao.ninja";
 
 class HomePage extends Component {
   state = {
     data: {},
+    dailyData: []
   };
 
   defaultData() {
     axios
-      .get(`${API_URL}`)
+      .get(`${API_URL}/v2/all`)
       .then((response) => {
+        console.log("default",response)
         this.setState({
           data: response.data,
         });
@@ -27,19 +29,36 @@ class HomePage extends Component {
       });
   }
 
+  dailyData(){
+    axios
+    .get(`${API_URL}/daily`)
+    .then((response) => {
+      console.log("daily data", response.data)
+      this.setState({
+        dailyData: response.data
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+
+
   componentDidMount() {
     this.defaultData();
+    this.dailyData();
   }
 
   render() {
-    let { data } = this.state;
+    let { data, dailyData } = this.state;
     console.log(data);
     return (
       <>
         <Header />
         <Hero />
         <Cards data={data} />
-        <Chart />
+        <Chart dailyData= {dailyData}/>
         <CountrySelector />
       </>
     );
