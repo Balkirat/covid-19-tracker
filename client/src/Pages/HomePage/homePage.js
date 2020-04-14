@@ -12,14 +12,13 @@ const API_URL = "https://corona.lmao.ninja";
 class HomePage extends Component {
   state = {
     data: {},
-    dailyData: []
+    dailyData: [],
   };
 
   defaultData() {
     axios
       .get(`${API_URL}/v2/all`)
       .then((response) => {
-        console.log("default",response)
         this.setState({
           data: response.data,
         });
@@ -29,21 +28,19 @@ class HomePage extends Component {
       });
   }
 
-  dailyData(){
+  dailyData() {
     axios
-    .get(`${API_URL}/daily`)
-    .then((response) => {
-      console.log("daily data", response.data)
-      this.setState({
-        dailyData: response.data
+      .get(`${API_URL}/v2/historical/all`)
+      .then((response) => {
+        console.log("daily data", response.data);
+        this.setState({
+          dailyData: response.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   }
-
-
 
   componentDidMount() {
     this.defaultData();
@@ -52,13 +49,11 @@ class HomePage extends Component {
 
   render() {
     let { data, dailyData } = this.state;
-    console.log(data);
     return (
       <>
-        <Header />
         <Hero />
         <Cards data={data} />
-        <Chart dailyData= {dailyData}/>
+        <Chart dailyData={dailyData} />
         <CountrySelector />
       </>
     );
