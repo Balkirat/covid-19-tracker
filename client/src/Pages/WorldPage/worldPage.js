@@ -7,15 +7,15 @@ const API_URL = "https://corona.lmao.ninja";
 class WorldPage extends Component {
   state = {
     data: [],
-    worldData: {}
+    worldData: {},
   };
 
-  tableData(){
-      axios.get(`${API_URL}/v2/countries`).then(response =>{
-          this.setState({
-              data: response.data
-          })
-      })
+  tableData() {
+    axios.get(`${API_URL}/v2/countries`).then((response) => {
+      this.setState({
+        data: response.data,
+      });
+    });
   }
 
   worldData() {
@@ -31,16 +31,14 @@ class WorldPage extends Component {
       });
   }
 
-
-
-  componentDidMount(){
-      this.tableData();
-      this.worldData();
+  componentDidMount() {
+    this.tableData();
+    this.worldData();
   }
   render() {
     return (
       <>
-        <Table tableData= {this.state.data} worldData= {this.state.worldData} />
+        <Table tableData={this.state.data} worldData={this.state.worldData} />
       </>
     );
   }

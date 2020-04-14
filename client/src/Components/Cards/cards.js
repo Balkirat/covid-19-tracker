@@ -26,7 +26,9 @@ function cards(props) {
           <p>Total No. Infected People from Covid-19</p>
         </div>
         <div className="cards">
-          <h3 className="cards__heading cards__heading--green">RECOVERED CASES</h3>
+          <h3 className="cards__heading cards__heading--green">
+            RECOVERED CASES
+          </h3>
           <h5>Recovered</h5>
           <p>
             {" "}
@@ -56,7 +58,9 @@ function cards(props) {
           <p>Total No. of Deaths from Covid-19</p>
         </div>
         <div className="cards">
-          <h3 className="cards__heading cards__heading--lightgray">TODAY'S DATA</h3>
+          <h3 className="cards__heading cards__heading--lightgray">
+            TODAY'S DATA
+          </h3>
           <h5>New Cases</h5>
           <p>
             {" "}

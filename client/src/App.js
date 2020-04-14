@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
 import Header from "./Components/Header"
 import WorldPage from "./Pages/WorldPage";
