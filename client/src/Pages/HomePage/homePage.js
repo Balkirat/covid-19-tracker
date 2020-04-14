@@ -3,7 +3,6 @@ import "./homePage.scss";
 import axios from "axios";
 import Cards from "../../Components/Cards";
 import Chart from "../../Components/Chart";
-import CountrySelector from "../../Components/CountrySelector";
 import Hero from "../../Components/Hero";
 
 const API_URL = "https://corona.lmao.ninja";
@@ -53,7 +52,6 @@ class HomePage extends Component {
         <Hero />
         <Cards data={data} />
         <Chart dailyData={dailyData} />
-        <CountrySelector />
       </>
     );
   }
