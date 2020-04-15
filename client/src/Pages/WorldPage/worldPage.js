@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Table from "../../Components/Table";
 import "./worldPage.scss";
 import axios from "axios";
+import Form from "react-bootstrap/Form";
 
 const API_URL = "https://corona.lmao.ninja";
 
@@ -11,6 +12,7 @@ class WorldPage extends Component {
     worldData: {},
     searchedData: [],
     searched: false,
+    toggle:false
   };
 
   tableData() {
@@ -49,6 +51,12 @@ class WorldPage extends Component {
     });
   };
 
+  toggleHandler = (e) => {
+    this.setState({
+      toggle: !this.state.toggle
+    })
+  }
+
   componentDidMount() {
     this.tableData();
     this.worldData();
@@ -67,17 +75,27 @@ class WorldPage extends Component {
                 placeholder="Filter..."
               ></input>
             </form>
+            <Form className="worldPage__switch" onChange={this.toggleHandler}>
+              <Form.Check
+                type="switch"
+                id="custom-switch"
+                label="Table / Cards"
+                
+              />
+            </Form>
           </div>
           {!this.state.searched && (
             <Table
               tableData={this.state.data}
               worldData={this.state.worldData}
+              toggle={this.state.toggle}
             />
           )}
           {this.state.searched && (
             <Table
               tableData={this.state.searchedData}
               worldData={this.state.worldData}
+              toggle={this.state.toggle}
             />
           )}
         </div>

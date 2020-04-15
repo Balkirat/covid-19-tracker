@@ -7,9 +7,11 @@
     margin-top: 30px;
     padding: 24px;
     &__form{
+        padding: 0 80px;
         margin-bottom: 16px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        vertical-align: baseline;
         &--search{
             padding: 6px 10px;
             outline: none;
@@ -17,4 +19,11 @@
             border-radius: 12px;           
         }
     }
+    &__switch{
+        margin-top: 8px;
+    }
+}
+
+.custom-control-label::before{
+    cursor: pointer;
 }
