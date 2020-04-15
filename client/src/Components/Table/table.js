@@ -1,5 +1,4 @@
 import React from "react";
-
 import CountUp from "react-countup";
 
 const Table = (props) => {
@@ -7,8 +6,10 @@ const Table = (props) => {
   if (!props.worldData.cases) {
     return "Loading.....";
   }
+  console.log(props.tableData)
   return (
     <>
+
       <div className="table">
         <table className="data__table">
           <thead>
