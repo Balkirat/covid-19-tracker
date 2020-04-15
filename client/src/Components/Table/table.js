@@ -1,4 +1,5 @@
 import React from "react";
+import "./table.scss";
 import CountUp from "react-countup";
 
 const Table = (props) => {
@@ -9,22 +10,21 @@ const Table = (props) => {
   console.log(props.tableData)
   return (
     <>
-
       <div className="table">
-        <table className="data__table">
-          <thead>
+        <table className="table__container">
+          <thead className="table__head">
             <tr>
-              <th>Country</th>
-              <th>Total Cases</th>
-              <th>Total Deaths</th>
-              <th>New Cases</th>
-              <th>New Deaths</th>
-              <th>Total Recovered</th>
+              <th className="table__head--row table__head--row--name">Country</th>
+              <th className="table__head--row">Total Cases</th>
+              <th className="table__head--row">Total Deaths</th>
+              <th className="table__head--row">New Cases</th>
+              <th className="table__head--row">New Deaths</th>
+              <th className="table__head--row">Total Recovered</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>World</th>
+            <tr className="table__world">
+              <td className="table__data--name">World</td>
               <td>
                 <CountUp
                   start={0}
@@ -33,7 +33,7 @@ const Table = (props) => {
                   separator=","
                 />
               </td>
-              <td>
+              <td className="table__data--deaths">
                 <CountUp
                   start={0}
                   end={props.worldData.deaths}
@@ -57,7 +57,7 @@ const Table = (props) => {
                   separator=","
                 />
               </td>
-              <td>
+              <td className="table__data--recovered">
                 <CountUp
                   start={0}
                   end={props.worldData.recovered}
@@ -70,7 +70,7 @@ const Table = (props) => {
               return (
                 <>
                   <tr key={data.countryInfo._id}>
-                    <th>{data.country}</th>
+                    <td className="table__data--name">{data.country}</td>
                     <td>
                       <CountUp
                         start={0}
@@ -79,7 +79,7 @@ const Table = (props) => {
                         separator=","
                       />
                     </td>
-                    <td>
+                    <td className="table__data--deaths">
                       <CountUp
                         start={0}
                         end={data.deaths}
@@ -103,7 +103,7 @@ const Table = (props) => {
                         separator=","
                       />
                     </td>
-                    <td>
+                    <td className="table__data--recovered">
                       <CountUp
                         start={0}
                         end={data.recovered}
@@ -117,6 +117,20 @@ const Table = (props) => {
             })}
           </tbody>
         </table>
+      </div>
+      <div>
+      {  props.tableData.map((data) =>{
+        return (
+          <>
+          <div className="card">
+            <h3>{data.country}</h3>
+            <h5>{data.cases}</h5>
+            <h5>{data.todayCases}</h5>
+            <h5>{data.deaths}</h5>
+          </div>
+          </>
+        )
+      }) }
       </div>
     </>
   );

@@ -1,0 +1,43 @@
+@import "../../styles/partials/resets";
+@import "../../styles/partials/variables";
+@import "../../styles/partials/breakpoints";
+@import "../../styles/partials/fonts";
+
+.table {
+  &__container {
+    margin: auto;
+    border: 2px solid gray;
+    border-collapse: collapse;
+  }
+  &__head {
+    height: 40px;
+    font-size: 20px;
+    color: rgb(24, 118, 196);
+    &--row {
+      border: 2px solid rgb(24, 118, 196) !important;
+      &--name {
+        text-align: center;
+      }
+    }
+  }
+  &__world {
+    background-color: rgb(243, 243, 243);
+  }
+  &__data {
+    &--name {
+      color: rgb(24, 118, 196);
+      width: 240px;
+    }
+    &--deaths{
+        background-color: rgb(221, 68, 68);
+    }
+    &--recovered{
+        background-color: rgb(137, 247, 137);
+    }
+  }
+}
+
+td {
+  border: 2px solid gray;
+  text-align: center;
+}

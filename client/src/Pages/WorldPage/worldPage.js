@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Table from "../../Components/Table";
+import "./worldPage.scss";
 import axios from "axios";
 
 const API_URL = "https://corona.lmao.ninja";
@@ -56,18 +57,30 @@ class WorldPage extends Component {
   render() {
     return (
       <>
-        <form onChange={this.searchCountry} onSubmit={this.searchCountry}>
-          <input name="search" type="search" placeholder="Search..."></input>
-        </form>
-        {!this.state.searched && (
-          <Table tableData={this.state.data} worldData={this.state.worldData} />
-        )}
-        {this.state.searched && (
-          <Table
-            tableData={this.state.searchedData}
-            worldData={this.state.worldData}
-          />
-        )}
+        <div className="worldPage">
+          <div className="worldPage__form">
+            <form onChange={this.searchCountry} onSubmit={this.searchCountry}>
+              <input
+                className="worldPage__form--search"
+                name="search"
+                type="search"
+                placeholder="Search..."
+              ></input>
+            </form>
+          </div>
+          {!this.state.searched && (
+            <Table
+              tableData={this.state.data}
+              worldData={this.state.worldData}
+            />
+          )}
+          {this.state.searched && (
+            <Table
+              tableData={this.state.searchedData}
+              worldData={this.state.worldData}
+            />
+          )}
+        </div>
       </>
     );
   }
