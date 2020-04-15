@@ -118,15 +118,19 @@ const Table = (props) => {
           </tbody>
         </table>
       </div>
-      <div>
+      <div className="cards-wrapper">
       {  props.tableData.map((data) =>{
         return (
           <>
-          <div className="card">
-            <h3>{data.country}</h3>
-            <h5>{data.cases}</h5>
-            <h5>{data.todayCases}</h5>
-            <h5>{data.deaths}</h5>
+          <div className="cards">
+            <h3>{data.country}  <img className="cards__logo" src={data.countryInfo.flag}></img></h3>
+            <h5>Total Cases: {data.cases}</h5>
+            <h5>Total Deaths: {data.deaths}</h5>
+            <h5>New Cases: {data.todayCases}</h5>
+            <h5>New Deaths: {data.todayDeaths}</h5>
+            <h5>Total Recovered: {data.recovered}</h5>
+            <h5>Active Cases: {data.active}</h5>
+            <h5>Critical Cases: {data.critical}</h5>
           </div>
           </>
         )

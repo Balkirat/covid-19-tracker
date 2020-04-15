@@ -4,6 +4,7 @@
 @import "../../styles/partials/fonts";
 
 .table {
+    display: none;
   &__container {
     margin: auto;
     border: 2px solid gray;
@@ -40,4 +41,22 @@
 td {
   border: 2px solid gray;
   text-align: center;
+}
+
+.cards-wrapper{
+    margin-top: 50px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cards{
+    &__logo{
+        margin-left: 8px;
+        width: 30px;
+        height: 30px;
+    }
 }
