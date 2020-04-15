@@ -4,7 +4,7 @@
 @import "../../styles/partials/fonts";
 
 .table {
-    display: none;
+  display: none;
   &__container {
     margin: auto;
     border: 2px solid gray;
@@ -29,11 +29,11 @@
       color: rgb(24, 118, 196);
       width: 240px;
     }
-    &--deaths{
-        background-color: rgb(221, 68, 68);
+    &--deaths {
+      background-color: rgb(221, 68, 68);
     }
-    &--recovered{
-        background-color: rgb(137, 247, 137);
+    &--recovered {
+      background-color: rgb(137, 247, 137);
     }
   }
 }
@@ -43,20 +43,40 @@ td {
   text-align: center;
 }
 
-.cards-wrapper{
-    margin-top: 50px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
+.card-wrapper {
+  width: 100%;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.cards{
-    &__logo{
-        margin-left: 8px;
-        width: 30px;
-        height: 30px;
+.card {
+  width: 27%;
+  min-width: 300px;
+  padding: 16px;
+  border: 2px solid black;
+  background-color: rgba(226, 219, 219, 0.5);
+  margin-bottom: 24px;
+  box-shadow: 10px 10px 6px -5px rgb(24, 118, 196);
+  text-align: center;
+  &__description {
+    margin: 12px auto 8px ;
+    width: 90%;
+    text-align: left;
+    & h5{
+        border-bottom: 2px solid rgb(24, 118, 196);
     }
+    & span{
+        float: right;
+    }
+  }
+
+  &__logo {
+    margin-left: 8px;
+    margin-bottom: 2px;
+    width: 30px;
+    height: 30px;
+  }
 }

@@ -7,14 +7,16 @@ const Table = (props) => {
   if (!props.worldData.cases) {
     return "Loading.....";
   }
-  console.log(props.tableData)
+  console.log(props.tableData);
   return (
     <>
       <div className="table">
         <table className="table__container">
           <thead className="table__head">
             <tr>
-              <th className="table__head--row table__head--row--name">Country</th>
+              <th className="table__head--row table__head--row--name">
+                Country
+              </th>
               <th className="table__head--row">Total Cases</th>
               <th className="table__head--row">Total Deaths</th>
               <th className="table__head--row">New Cases</th>
@@ -118,23 +120,34 @@ const Table = (props) => {
           </tbody>
         </table>
       </div>
-      <div className="cards-wrapper">
-      {  props.tableData.map((data) =>{
-        return (
-          <>
-          <div className="cards">
-            <h3>{data.country}  <img className="cards__logo" src={data.countryInfo.flag}></img></h3>
-            <h5>Total Cases: {data.cases}</h5>
-            <h5>Total Deaths: {data.deaths}</h5>
-            <h5>New Cases: {data.todayCases}</h5>
-            <h5>New Deaths: {data.todayDeaths}</h5>
-            <h5>Total Recovered: {data.recovered}</h5>
-            <h5>Active Cases: {data.active}</h5>
-            <h5>Critical Cases: {data.critical}</h5>
-          </div>
-          </>
-        )
-      }) }
+      <div className="card-wrapper">
+        {props.tableData.map((data) => {
+          return (
+            <>
+              <div className="card">
+                <h3>
+                  {data.country}{" "}
+                  <img className="card__logo" src={data.countryInfo.flag}></img>
+                </h3>
+                <div className="card__description">
+                  <div className="card__description--left">
+                    <h5>Total Cases <span>{data.cases}</span></h5>
+                    <h5>Total Deaths <span>{data.deaths}</span></h5>
+                    <h5>New Cases <span>{data.todayCases}</span></h5>
+                    <h5>New Deaths <span>{data.todayDeaths}</span></h5>
+                  </div>
+
+                  <div className="card__description--right">
+                    <h5>Total Recovered <span>{data.recovered}</span></h5>
+                    <h5>Active Cases <span>{data.active}</span></h5>
+                    <h5>Critical Cases <span>{data.critical}</span></h5>
+                    <h5>Cases Per Million <span>{data.casesPerOneMillion}</span></h5>
+                  </div>
+                </div>
+              </div>
+            </>
+          );
+        })}
       </div>
     </>
   );

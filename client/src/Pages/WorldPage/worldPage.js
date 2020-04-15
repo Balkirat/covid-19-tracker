@@ -64,7 +64,7 @@ class WorldPage extends Component {
                 className="worldPage__form--search"
                 name="search"
                 type="search"
-                placeholder="Search..."
+                placeholder="Filter..."
               ></input>
             </form>
           </div>
