@@ -7,11 +7,13 @@
     margin-top: 30px;
     padding: 24px;
     &__form{
-        padding: 0 80px;
         margin-bottom: 16px;
         display: flex;
         justify-content: space-between;
         vertical-align: baseline;
+        @include mobile{
+            justify-content:center;
+        }
         &--search{
             padding: 6px 10px;
             outline: none;
@@ -21,6 +23,9 @@
     }
     &__switch{
         margin-top: 8px;
+        @include mobile{
+            display: none;
+        }
     }
 }
 

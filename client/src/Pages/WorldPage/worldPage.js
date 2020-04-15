@@ -3,6 +3,7 @@ import Table from "../../Components/Table";
 import "./worldPage.scss";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
+import MediaQuery from "react-responsive";
 
 const API_URL = "https://corona.lmao.ninja";
 
@@ -12,7 +13,7 @@ class WorldPage extends Component {
     worldData: {},
     searchedData: [],
     searched: false,
-    toggle:false
+    toggle: true,
   };
 
   tableData() {
@@ -53,9 +54,18 @@ class WorldPage extends Component {
 
   toggleHandler = (e) => {
     this.setState({
-      toggle: !this.state.toggle
-    })
-  }
+      toggle: !this.state.toggle,
+    });
+  };
+
+  handleMediaQueryChange = (matches) => {
+    console.log("matches", matches);
+    if (!matches) {
+      this.setState({
+        toggle: true,
+      });
+    }
+  };
 
   componentDidMount() {
     this.tableData();
@@ -75,12 +85,17 @@ class WorldPage extends Component {
                 placeholder="Filter..."
               ></input>
             </form>
+            <MediaQuery
+              minDeviceWidth={768}
+              onChange={this.handleMediaQueryChange}
+            >
+              <></>
+            </MediaQuery>
             <Form className="worldPage__switch" onChange={this.toggleHandler}>
               <Form.Check
                 type="switch"
                 id="custom-switch"
                 label="Table / Cards"
-                
               />
             </Form>
           </div>
